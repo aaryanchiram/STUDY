@@ -1,8 +1,8 @@
 (function(){"use strict";function init(){if(document.getElementById("studyAudioDock"))return;
 const currentScript=document.currentScript||document.querySelector('script[src*="reading-assistant.js"]');
 const homeUrl=currentScript?new URL("../../index.html",currentScript.src).href:"../../index.html";
-const pagePath=location.pathname.replace(/\\/$/,"");
-const isHomePage=pagePath===""||/\\/index\\.html$/i.test(pagePath)&&!pagePath.includes("/content/");
+const pagePath=location.pathname.replace(/\/+$/,"");
+const isHomePage=pagePath===""||/\/index\.html$/i.test(pagePath)&&!pagePath.includes("/content/");
 if(!isHomePage&&!document.getElementById("studyPageActions")){
 const actions=document.createElement("div");actions.id="studyPageActions";
 actions.innerHTML='<a class="study-page-action study-home-action" href="'+homeUrl+'">🏠 होम</a><button class="study-page-action study-back-action" type="button">← Back</button>';
