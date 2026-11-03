@@ -52,7 +52,7 @@ exports.handler = async event => {
 
   if (body.action === "generate") {
     if (!process.env.OPENAI_API_KEY) return reply(503, { error: "Netlify में OPENAI_API_KEY सेट नहीं है।" });
-    const model = process.env.OPENAI_MODEL || "gpt-6-mini";
+    const model = process.env.OPENAI_MODEL || "gpt-6-astra";
     const prompt = `आप CTET Paper II के अनुभवी हिंदी माध्यम शिक्षक और अध्ययन-सामग्री लेखक हैं।
 विषय: ${subject.label}
 टॉपिक: ${topic}
@@ -77,7 +77,7 @@ HTML को semantic रखें: h2, h3, p, ul, ol, table, blockquote, details
       if (!response.ok) return reply(response.status === 429 ? 429 : 502, { error: data.error?.message || "OpenAI से कंटेंट नहीं बन पाया।" });
       const html = String(data.output_text || "").trim().replace(/^\`\`\`(?:html)?\s*/i, "").replace(/\s*\`\`\`$/, "");
       if (!html || html.length < 100) return reply(502, { error: "AI से उपयोगी HTML सामग्री प्राप्त नहीं हुई। दोबारा प्रयास करें।" });
-      if (/<\s*(script|iframe|form|object|embed)\b/i.test(html)) return reply(502, { error: "सुरक्षा कारणों से AI आउटपुट अस्वीकार किया गया।" });
+      if (/<\s*(script|iframe|form|object|embed)\b|\son[a-z]+\s*=|javascript\s*:/i.test(html)) return reply(502, { error: "सुरक्षा कारणों से AI आउटपुट अस्वीकार किया गया।" });
       return reply(200, { html, model });
     } catch (error) {
       return reply(502, { error: "OpenAI अनुरोध विफल: " + safeText(error.message, 180) });
@@ -87,7 +87,7 @@ HTML को semantic रखें: h2, h3, p, ul, ol, table, blockquote, details
   if (body.action === "save") {
     const htmlFragment = String(body.html || "").trim();
     if (htmlFragment.length < 100 || htmlFragment.length > 180000) return reply(400, { error: "कंटेंट 100 से 180000 अक्षरों के बीच होना चाहिए।" });
-    if (/<\s*(script|iframe|form|object|embed)\b/i.test(htmlFragment)) return reply(400, { error: "कंटेंट में प्रतिबंधित HTML टैग मिला।" });
+    if (/<\s*(script|iframe|form|object|embed)\b|\son[a-z]+\s*=|javascript\s*:/i.test(htmlFragment)) return reply(400, { error: "कंटेंट में प्रतिबंधित HTML टैग मिला।" });
     if (!process.env.GITHUB_CONTENT_TOKEN) return reply(503, { error: "GitHub Token सेट नहीं है।" });
 
     const path = "content/" + subject.folder + "/" + slug + ".html";
