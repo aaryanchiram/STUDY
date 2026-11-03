@@ -33,6 +33,76 @@
       ],
       "url": "content/Social_Science/bharat-me-swatantrata-andolan.html",
       "file": "content/Social_Science/bharat-me-swatantrata-andolan.html"
+    },
+    {
+      "id": "content-मुख्य_सिलेबस-cdp-html",
+      "title": "CTET CDP सिलेबस | Paper II",
+      "subject": "मुख्य_सिलेबस",
+      "type": "HTML",
+      "description": "मुख्य सिलेबस की अध्ययन सामग्री",
+      "keywords": [
+        "CTET CDP सिलेबस | Paper II",
+        "मुख्य सिलेबस",
+        "CTET"
+      ],
+      "url": "content/मुख्य_सिलेबस/cdp.html",
+      "file": "content/मुख्य_सिलेबस/cdp.html"
+    },
+    {
+      "id": "content-मुख्य_सिलेबस-hindi-html",
+      "title": "CTET हिंदी भाषा सिलेबस | Paper II",
+      "subject": "मुख्य_सिलेबस",
+      "type": "HTML",
+      "description": "मुख्य सिलेबस की अध्ययन सामग्री",
+      "keywords": [
+        "CTET हिंदी भाषा सिलेबस | Paper II",
+        "मुख्य सिलेबस",
+        "CTET"
+      ],
+      "url": "content/मुख्य_सिलेबस/hindi.html",
+      "file": "content/मुख्य_सिलेबस/hindi.html"
+    },
+    {
+      "id": "content-मुख्य_सिलेबस-index-html",
+      "title": "CTET मुख्य सिलेबस | STUDY",
+      "subject": "मुख्य_सिलेबस",
+      "type": "HTML",
+      "description": "CTET Paper II के हिंदी, संस्कृत, CDP और सामाजिक विज्ञान का विषयवार सिलेबस।",
+      "keywords": [
+        "CTET मुख्य सिलेबस | STUDY",
+        "मुख्य सिलेबस",
+        "CTET"
+      ],
+      "url": "content/मुख्य_सिलेबस/index.html",
+      "file": "content/मुख्य_सिलेबस/index.html"
+    },
+    {
+      "id": "content-मुख्य_सिलेबस-sanskrit-html",
+      "title": "CTET संस्कृत भाषा सिलेबस | Paper II",
+      "subject": "मुख्य_सिलेबस",
+      "type": "HTML",
+      "description": "मुख्य सिलेबस की अध्ययन सामग्री",
+      "keywords": [
+        "CTET संस्कृत भाषा सिलेबस | Paper II",
+        "मुख्य सिलेबस",
+        "CTET"
+      ],
+      "url": "content/मुख्य_सिलेबस/sanskrit.html",
+      "file": "content/मुख्य_सिलेबस/sanskrit.html"
+    },
+    {
+      "id": "content-मुख्य_सिलेबस-social-science-html",
+      "title": "CTET सामाजिक विज्ञान सिलेबस | Paper II",
+      "subject": "मुख्य_सिलेबस",
+      "type": "HTML",
+      "description": "मुख्य सिलेबस की अध्ययन सामग्री",
+      "keywords": [
+        "CTET सामाजिक विज्ञान सिलेबस | Paper II",
+        "मुख्य सिलेबस",
+        "CTET"
+      ],
+      "url": "content/मुख्य_सिलेबस/social-science.html",
+      "file": "content/मुख्य_सिलेबस/social-science.html"
     }
   ]
 }
