@@ -16,11 +16,10 @@ SUBJECTS = {
     "Common": "सामान्य",
 }
 EXT_TYPES = {
-    ".html": "Interactive Notes",
-    ".htm": "Interactive Notes",
+    ".html": "HTML",
+    
     ".pdf": "PDF",
-    ".md": "Notes",
-    ".txt": "Notes",
+    
 }
 
 def page_metadata(path: Path):
@@ -52,7 +51,7 @@ def main():
             if not subject_dir.is_dir():
                 continue
             for path in sorted(subject_dir.rglob("*")):
-                if not path.is_file() or path.name.lower() in {"readme.md", "readme.html"}:
+                if not path.is_file():
                     continue
                 typ = EXT_TYPES.get(path.suffix.lower())
                 if not typ:
@@ -74,11 +73,6 @@ def main():
                     "file": rel,
                 })
 
-    # Keep hand-written entries such as subject introductions that point to README files.
-    discovered_urls = {item["url"] for item in discovered}
-    for url, item in previous.items():
-        if url not in discovered_urls and url.startswith("content/"):
-            discovered.append(item)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({
