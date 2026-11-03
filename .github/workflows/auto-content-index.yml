@@ -1,0 +1,32 @@
+name: Auto update content library
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "tools/scan-content.py"
+      - ".github/workflows/auto-content-index.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build content index
+        run: python tools/scan-content.py
+      - name: Commit updated index
+        run: |
+          if git diff --quiet -- assets/data/content-index.json; then
+            echo "Content index is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/content-index.json
+          git commit -m "Auto update digital library content index"
+          git push
