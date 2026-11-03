@@ -39,6 +39,44 @@
     text-align:center;
   }
 }
+
+/* Match every mobile action button to the compact Print/PDF button dimensions */
+@media(max-width:650px){
+  button:not(.menu-toggle),
+  .btn,
+  .links a,
+  .nav a,
+  .button-link,
+  .primary-btn,
+  a[role="button"]{
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+    width:auto!important;
+    min-width:0!important;
+    max-width:100%;
+    min-height:0!important;
+    height:auto!important;
+    padding:10px 14px!important;
+    margin:4px 4px 4px 0;
+    border-radius:10px!important;
+    font-size:14px!important;
+    line-height:1.4!important;
+    font-weight:700;
+    white-space:normal;
+    text-align:center;
+    vertical-align:middle;
+  }
+  .links,.nav{display:flex!important;flex-flow:row wrap!important;align-items:center;gap:6px}
+  .quiz button.opt,.quiz button,
+  #quizArea button{
+    display:inline-flex!important;
+    width:auto!important;
+    max-width:100%;
+    text-align:left;
+  }
+}
 </style></head>
 <body>
 <header class="site-header">
