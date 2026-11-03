@@ -43,7 +43,7 @@ async function callApi(payload){
 }
 async function generate(){
  if(!selectedSubject||!selectedTopic)return;
- const btn=$("#creatorGenerate");btn.disabled=true;status("OpenAI से कंटेंट तैयार हो रहा है… इसमें कुछ समय लग सकता है।");
+ const btn=$("#creatorGenerate");btn.disabled=true;status("Gemini से कंटेंट तैयार हो रहा है… इसमें कुछ समय लग सकता है।");
  try{const data=await callApi({action:"generate",subject:selectedSubject,topic:selectedTopic[1],slug:selectedTopic[0]});$("#creatorHtml").value=data.html;$("#creatorEditor").hidden=false;updatePreview();status("कंटेंट तैयार है। अब नीचे एडिट करें और सेव करने से पहले प्रीव्यू देखें।","success");$("#creatorEditor").scrollIntoView({behavior:"smooth",block:"start"})}
  catch(e){status(e.message,"error")}finally{btn.disabled=false}
 }
