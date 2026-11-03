@@ -5,6 +5,69 @@
 <style>
 :root{--ink:#17243b;--muted:#607086;--paper:#f5f8fc;--card:#fff;--blue:#174b70;--teal:#0f766e;--gold:#e3a43b;--line:#dce5ee}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 "Noto Sans Devanagari","Mangal",system-ui,sans-serif}.hero{background:linear-gradient(125deg,#102c50,#14736f);color:white;padding:34px 18px}.wrap{max-width:1080px;margin:auto;padding:0 16px}.hero h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.25;margin:8px 0}.hero p{max-width:800px;color:#e4eef6}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #ffffff66;border-radius:22px;padding:4px 12px;font-size:.85rem}.layout{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin:22px auto}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 4px 18px #1a35520a}.card h2{color:var(--blue);margin:0 0 10px}.event{border-left:5px solid var(--teal);padding:12px 15px;margin:12px 0;background:#f8fbfd;border-radius:0 12px 12px 0}.year{font-weight:900;color:var(--teal)}.leader{color:#465b70;font-size:.94rem}.tip{background:#fff7e7;border-left:4px solid var(--gold);padding:10px 13px;border-radius:8px;margin-top:9px}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:580px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf1f8;color:var(--blue)}figure{margin:12px 0}figure img{display:block;width:100%;height:auto;border-radius:12px}figcaption{color:var(--muted);font-size:.88rem}.quiz button{display:block;width:100%;text-align:left;padding:10px;margin:7px 0;border:1px solid var(--line);border-radius:9px;background:#f0f5f9;color:var(--ink);font:inherit;cursor:pointer}.quiz button:disabled{opacity:.8}.correct{background:#e4f6eb!important;border-color:#4a9c72!important}.wrong{background:#fff0ed!important;border-color:#c66!important}.feedback{font-weight:700;color:var(--teal);min-height:28px}.side{position:sticky;top:12px;align-self:start}.muted{color:var(--muted);font-size:.93rem}.footer{text-align:center;color:var(--muted);padding:24px}@media(max-width:800px){.layout{grid-template-columns:1fr}.side{position:static}}
+
+/* Professional responsive refinements */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+a{color:#155d82;text-underline-offset:3px}
+button,a{-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation}
+.hero{padding:clamp(24px,5vw,46px) 0}
+.hero .wrap{max-width:1120px}
+.hero h1{max-width:900px;letter-spacing:-.02em}
+.hero p{font-size:clamp(.98rem,1.6vw,1.1rem);line-height:1.8}
+.wrap{width:100%;max-width:1120px}
+.layout{grid-template-columns:minmax(0,2fr) minmax(250px,.9fr);align-items:start;gap:22px}
+main,.side{min-width:0}
+.card{padding:clamp(15px,2.2vw,22px);border-radius:16px;overflow-wrap:anywhere}
+.card h2{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.45}
+.event{padding:clamp(11px,1.8vw,16px);overflow-wrap:anywhere}
+.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px}
+table{min-width:590px;width:100%}
+th,td{padding:11px 12px}
+.quiz button,.quiz>button{min-height:46px;line-height:1.5;transition:background .15s,border-color .15s}
+.quiz button:focus-visible,.quiz>button:focus-visible{outline:3px solid #e3a43b;outline-offset:2px}
+.card a{overflow-wrap:anywhere}
+@media(max-width:800px){
+ .layout{grid-template-columns:minmax(0,1fr);gap:8px;margin:14px auto}
+ .side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;position:static}
+ .side .card{margin:0}
+}
+@media(max-width:600px){
+ body{font-size:15px;line-height:1.72}
+ .hero{padding:24px 0 26px}
+ .hero .wrap{padding:0 15px}
+ .hero h1{font-size:clamp(1.55rem,7vw,2.05rem);line-height:1.35;margin:10px 0}
+ .hero p{font-size:.94rem;line-height:1.75;margin-bottom:14px}
+ .chips{gap:6px}
+ .chip{font-size:.76rem;padding:4px 9px}
+ .wrap{padding-left:12px;padding-right:12px}
+ .layout{margin:12px auto}
+ .card{padding:14px;margin-bottom:12px;border-radius:13px}
+ .card h2{font-size:1.13rem;margin-bottom:8px}
+ .event{margin:10px 0;padding:11px 12px;border-left-width:4px;border-radius:0 10px 10px 0}
+ .year{font-size:.98rem;line-height:1.55}
+ .leader{font-size:.88rem;line-height:1.65}
+ .tip{padding:9px 10px;font-size:.9rem}
+ figure{margin:8px 0}
+ figure img{max-width:100%;height:auto}
+ figcaption{font-size:.8rem}
+ .table-wrap{margin:8px -2px}
+ table{min-width:560px;font-size:.86rem}
+ th,td{padding:9px 10px}
+ .side{grid-template-columns:minmax(0,1fr);gap:10px}
+ .side .card{padding:14px}
+ .side ol{padding-left:22px}
+ .quiz button,.quiz>button{width:100%;min-height:48px;margin:7px 0;padding:11px 12px;font-size:.93rem;border-radius:10px}
+ .feedback{font-size:.9rem;line-height:1.6}
+ .footer{padding:18px 12px;font-size:.85rem}
+}
+@media(min-width:601px) and (max-width:800px){
+ .side{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .side .card:last-child{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 </style></head><body>
 <header class="hero"><div class="wrap"><div>CTET • SOCIAL SCIENCE • MODERN INDIAN HISTORY</div><h1>भारत के महत्वपूर्ण स्वतंत्रता आंदोलन और नेतृत्वकर्ता</h1><p>1857 के विद्रोह से भारत छोड़ो आंदोलन तक—प्रमुख घटनाएँ, कारण, नेतृत्व, उद्देश्य और परिणाम को समयरेखा, सारणी, चित्र और CTET अभ्यास के साथ समझें।</p><div class="chips"><span class="chip">📅 कालक्रम</span><span class="chip">👥 नेतृत्वकर्ता</span><span class="chip">🧠 याद रखने की ट्रिक</span><span class="chip">🎯 अभ्यास प्रश्न</span></div></div></header>
 <div class="wrap"><div class="layout"><main>
