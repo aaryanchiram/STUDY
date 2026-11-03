@@ -36,7 +36,9 @@ exports.handler = async event => {
   const configuredPassword = process.env.CONTENT_CREATOR_PASSWORD;
   if (!configuredPassword || !process.env.GITHUB_CONTENT_TOKEN) return reply(503, { error: "Content Creator के लिए Netlify में आवश्यक environment variables सेट नहीं हैं।" });
   const suppliedPassword = event.headers["x-creator-password"] || event.headers["X-Creator-Password"] || "";
-  if (suppliedPassword.length !== configuredPassword.length || !require("node:crypto").timingSafeEqual(Buffer.from(suppliedPassword), Buffer.from(configuredPassword))) {
+  const suppliedBytes = Buffer.from(suppliedPassword, "utf8");
+  const configuredBytes = Buffer.from(configuredPassword, "utf8");
+  if (suppliedBytes.length !== configuredBytes.length || !require("node:crypto").timingSafeEqual(suppliedBytes, configuredBytes)) {
     return reply(401, { error: "Creator Password गलत है।" });
   }
 
