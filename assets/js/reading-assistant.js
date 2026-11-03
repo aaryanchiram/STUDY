@@ -8,8 +8,12 @@ const actions=document.createElement("div");actions.id="studyPageActions";
 actions.innerHTML='<a class="study-page-action study-home-action" href="'+homeUrl+'">🏠 होम</a><button class="study-page-action study-back-action" type="button">← Back</button>';
 const style=document.createElement("style");style.textContent='#studyPageActions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:28px auto 20px;padding:0 16px;max-width:1100px;position:static;clear:both}#studyPageActions .study-page-action{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:12px 20px;border:0;border-radius:7px;background:#123f68;color:#fff;text-decoration:none;font:700 14px/1.4 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;cursor:pointer}#studyPageActions .study-page-action:hover{background:#1769aa}#studyPageActions .study-back-action{font-family:inherit}';
 document.head.appendChild(style);
-const main=document.querySelector("main");const footer=document.querySelector("footer,.footer");
-if(main){main.insertAdjacentElement("afterend",actions)}else if(footer){footer.insertAdjacentElement("beforebegin",actions)}else{document.body.appendChild(actions)}
+const hero=document.querySelector("main .hero,body > header.hero,header.hero,section.hero,.hero");
+const heading=document.querySelector("main h1,body h1");
+const headingBlock=heading?heading.closest("header,section,.hero")||heading:null;
+const anchor=hero||headingBlock;
+if(anchor){anchor.insertAdjacentElement("afterend",actions)}
+else{const main=document.querySelector("main");if(main)main.insertAdjacentElement("afterbegin",actions);else document.body.insertBefore(actions,document.body.firstChild)}
 actions.querySelector(".study-back-action").addEventListener("click",()=>{if(history.length>1)history.back();else location.href=homeUrl});
 }
 
