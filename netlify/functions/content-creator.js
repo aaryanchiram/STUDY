@@ -81,10 +81,10 @@ HTML को semantic रखें: h2, h3, p, ul, ol, table, blockquote, details
         const message = data.error?.message || "Gemini से कंटेंट नहीं बन पाया।";
         return reply(response.status === 429 ? 429 : 502, { error: message });
       }
-      const html = String((data.candidates || []).flatMap(c => c.content?.parts || []).map(p => p.text || "").join("\\n")).trim()
-        .replace(/^\`\`\`(?:html)?\\s*/i, "").replace(/\\s*\`\`\`$/, "");
+      const html = String((data.candidates || []).flatMap(c => c.content?.parts || []).map(p => p.text || "").join("\n")).trim()
+        .replace(/^\`\`\`(?:html)?\s*/i, "").replace(/\s*\`\`\`$/, "");
       if (!html || html.length < 100) return reply(502, { error: "Gemini से उपयोगी HTML सामग्री प्राप्त नहीं हुई।" });
-      if (/<\\s*(script|iframe|form|object|embed)\\b|\\son[a-z]+\\s*=|javascript\\s*:/i.test(html)) return reply(502, { error: "सुरक्षा कारणों से AI आउटपुट अस्वीकार किया गया।" });
+      if (/<\s*(script|iframe|form|object|embed)\b|\son[a-z]+\s*=|javascript\s*:/i.test(html)) return reply(502, { error: "सुरक्षा कारणों से AI आउटपुट अस्वीकार किया गया।" });
       return reply(200, { html, model });
     } catch (error) {
       return reply(502, { error: "Gemini अनुरोध विफल: " + safeText(error.message, 180) });
