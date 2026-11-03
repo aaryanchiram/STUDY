@@ -6,7 +6,7 @@
       "id": "sst-battles-timeline-01",
       "title": "भारत के महत्वपूर्ण युद्ध — प्राचीन काल से स्वतंत्रता तक",
       "subject": "Social_Science",
-      "type": "Interactive Notes",
+      "type": "HTML",
       "description": "कालक्रमानुसार युद्ध, कारण-परिणाम, याददाश्त ट्रिक्स, हिंदी टेक्स्ट-टू-स्पीच और CTET शैली अभ्यास प्रश्न।",
       "keywords": [
         "भारत के युद्ध",
@@ -19,60 +19,6 @@
       ],
       "url": "content/Social_Science/bharat-ke-mahatvapurn-yuddh.html",
       "file": "content/Social_Science/bharat-ke-mahatvapurn-yuddh.html"
-    },
-    {
-      "id": "cdp-demo-01",
-      "title": "बाल विकास एवं शिक्षाशास्त्र — परिचय",
-      "subject": "CDP",
-      "type": "Notes",
-      "description": "CDP विषय की प्रारंभिक अध्ययन सामग्री के लिए नमूना प्रविष्टि।",
-      "keywords": [
-        "बाल विकास",
-        "शिक्षाशास्त्र",
-        "CTET"
-      ],
-      "url": "content/CDP/README.md",
-      "file": "content/CDP/README.md"
-    },
-    {
-      "id": "hindi-demo-01",
-      "title": "हिंदी भाषा शिक्षण — परिचय",
-      "subject": "Hindi",
-      "type": "Notes",
-      "description": "हिंदी भाषा अनुभाग की प्रारंभिक सामग्री के लिए नमूना प्रविष्टि।",
-      "keywords": [
-        "हिंदी",
-        "भाषा शिक्षण"
-      ],
-      "url": "content/Hindi/README.md",
-      "file": "content/Hindi/README.md"
-    },
-    {
-      "id": "sanskrit-demo-01",
-      "title": "संस्कृत भाषा — परिचय",
-      "subject": "Sanskrit",
-      "type": "Notes",
-      "description": "संस्कृत अनुभाग की प्रारंभिक सामग्री के लिए नमूना प्रविष्टि।",
-      "keywords": [
-        "संस्कृत",
-        "व्याकरण"
-      ],
-      "url": "content/Sanskrit/README.md",
-      "file": "content/Sanskrit/README.md"
-    },
-    {
-      "id": "sst-demo-01",
-      "title": "सामाजिक विज्ञान — परिचय",
-      "subject": "Social_Science",
-      "type": "Notes",
-      "description": "सामाजिक विज्ञान अनुभाग की प्रारंभिक सामग्री के लिए नमूना प्रविष्टि।",
-      "keywords": [
-        "इतिहास",
-        "भूगोल",
-        "नागरिकशास्त्र"
-      ],
-      "url": "content/Social_Science/README.md",
-      "file": "content/Social_Science/README.md"
     }
   ]
 }
