@@ -1,1 +1,39 @@
 :root{--navy:#123f68;--blue:#1769aa;--sky:#eaf4fb;--ink:#172b3d;--muted:#647789;--paper:#f7fafc;--line:#e2eaf0;--white:#fff;--gold:#e7ad45}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;line-height:1.65}.site-header{height:76px;padding:0 clamp(18px,6vw,90px);display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.brand{display:flex;align-items:center;gap:12px;color:var(--navy);text-decoration:none}.brand-mark{font-size:30px}.brand strong,.brand small{display:block}.brand strong{font-size:17px}.brand small{font-size:11px;color:var(--muted)}nav{display:flex;gap:30px}nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}nav a:hover{color:var(--blue)}.menu-toggle{display:none;border:0;background:none;font-size:25px;color:var(--navy)}.hero{min-height:390px;padding:65px clamp(20px,10vw,150px);display:flex;align-items:center;justify-content:space-between;gap:30px;background:linear-gradient(115deg,#e9f4fb,#f9fbfd 70%);overflow:hidden}.hero-copy{max-width:590px}.eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);font-weight:800}.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.25;margin:13px 0;color:var(--navy)}.hero h1 em{font-style:normal;color:var(--blue)}.hero p{color:var(--muted);max-width:500px}.primary-btn{display:inline-flex;gap:24px;align-items:center;margin-top:15px;padding:12px 20px;background:var(--navy);color:white;text-decoration:none;border-radius:7px;font-weight:700}.hero-art{width:300px;height:240px;position:relative;display:grid;place-items:center}.book{position:absolute;width:155px;height:190px;border-radius:8px 15px 15px 8px;box-shadow:12px 16px 28px #123f6830;display:grid;place-items:center;color:#fff;font-size:25px;font-weight:800;border-left:8px solid #ffffff55}.book-one{background:#1769aa;transform:rotate(-12deg) translate(-35px,5px)}.book-two{background:#d49a37;transform:rotate(10deg) translate(35px,-5px)}.art-orbit{position:absolute;top:0;right:20px;color:var(--gold);font-size:48px}.stats{display:flex;justify-content:center;gap:clamp(35px,10vw,140px);padding:25px 15px;background:white;border-bottom:1px solid var(--line)}.stats div{text-align:center}.stats strong,.stats span{display:block}.stats strong{font-size:23px;color:var(--navy)}.stats span{font-size:12px;color:var(--muted)}.section{padding:55px clamp(18px,7vw,100px)}.section-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}.section-heading h2{margin:4px 0 0;font-size:27px;color:var(--navy)}footer{text-align:center;padding:35px 15px;background:#102f4b;color:#dbe8f2}footer p{margin:5px}footer small{color:#a9bdce}.footer-brand{font-weight:800;font-size:18px}@media(max-width:650px){.site-header{height:66px}.menu-toggle{display:block}nav{display:none;position:absolute;top:65px;left:0;right:0;background:white;padding:18px 24px;box-shadow:0 8px 15px #0001;flex-direction:column;gap:14px}nav.open{display:flex}.hero{min-height:0;padding-top:45px;padding-bottom:35px}.hero-art{display:none}.stats{gap:24px}.stats strong{font-size:19px}.section{padding-top:40px;padding-bottom:40px}.section-heading h2{font-size:23px}}
+
+/* Match every mobile action button to the compact Print/PDF button dimensions */
+@media(max-width:650px){
+  button:not(.menu-toggle),
+  .btn,
+  .links a,
+  .nav a,
+  .button-link,
+  .primary-btn,
+  a[role="button"]{
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+    width:auto!important;
+    min-width:0!important;
+    max-width:100%;
+    min-height:0!important;
+    height:auto!important;
+    padding:10px 14px!important;
+    margin:4px 4px 4px 0;
+    border-radius:10px!important;
+    font-size:14px!important;
+    line-height:1.4!important;
+    font-weight:700;
+    white-space:normal;
+    text-align:center;
+    vertical-align:middle;
+  }
+  .links,.nav{display:flex!important;flex-flow:row wrap!important;align-items:center;gap:6px}
+  .quiz button.opt,.quiz button,
+  #quizArea button{
+    display:inline-flex!important;
+    width:auto!important;
+    max-width:100%;
+    text-align:left;
+  }
+}
