@@ -8,7 +8,14 @@
   <title>CTET Digital Library | STUDY</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/library.css">
-</head>
+<style>
+.syllabus-section{padding-top:clamp(20px,3vw,34px);padding-bottom:clamp(18px,2vw,26px)}
+.syllabus-folder{display:flex;align-items:center;gap:18px;width:100%;padding:clamp(18px,3vw,28px);border:1px solid #c9dce8;border-radius:18px;background:linear-gradient(115deg,#fff,#edf6f8);box-shadow:0 10px 28px #123f6810;color:#123f68;text-decoration:none;transition:.2s}
+.syllabus-folder:hover{transform:translateY(-3px);border-color:#0f766e;box-shadow:0 15px 34px #123f681c}
+.syllabus-folder .folder-icon{display:grid;place-items:center;flex:0 0 58px;width:58px;height:58px;border-radius:16px;background:#dff1ee;font-size:30px}
+.syllabus-folder strong{display:block;font-size:clamp(1.05rem,2vw,1.3rem)}.syllabus-folder small{display:block;color:#5b6d80;margin-top:4px;line-height:1.55}.syllabus-folder .folder-arrow{margin-left:auto;font-size:28px;font-weight:800}
+@media(max-width:600px){.syllabus-folder{gap:12px;padding:16px}.syllabus-folder .folder-icon{flex-basis:48px;width:48px;height:48px;font-size:25px}.syllabus-folder .folder-arrow{font-size:22px}}
+</style></head>
 <body>
 <header class="site-header">
   <a class="brand" href="./"><span class="brand-mark">📚</span><span><strong>CTET Digital Library</strong><small>अध्ययन • अभ्यास • सफलता</small></span></a>
@@ -21,8 +28,9 @@
     <div class="hero-art" aria-hidden="true"><div class="book book-one">अध्ययन</div><div class="book book-two">CTET</div><div class="art-orbit">✦</div></div>
   </section>
   <section class="stats" aria-label="पुस्तकालय की जानकारी"><div><strong id="totalCount">0</strong><span>कुल सामग्री</span></div><div><strong>4</strong><span>मुख्य विषय</span></div><div><strong>24×7</strong><span>अध्ययन सुविधा</span></div></section>
+  <section class="section syllabus-section" id="syllabus"><div class="section-heading"><div><span class="eyebrow">एक ही स्थान पर विषयवार पाठ्यक्रम</span><h2>📁 CTET सिलेबस</h2></div></div><a class="syllabus-folder" href="content/मुख्य_सिलेबस/index.html"><span class="folder-icon">📂</span><span><strong>सिलेबस फोल्डर खोलें</strong><small>हिंदी • संस्कृत • CDP • सामाजिक विज्ञान — चारों विषय अलग-अलग</small></span><span class="folder-arrow">→</span></a></section>
   <section class="section" id="subjects"><div class="section-heading"><div><span class="eyebrow">अपना विषय चुनें</span><h2>विषयवार अध्ययन</h2></div></div><div class="subject-grid" id="subjectCards"></div></section>
-  <section class="section syllabus-section" id="syllabus"><div class="section-heading"><div><span class="eyebrow">एक ही स्थान पर विषयवार पाठ्यक्रम</span><h2>📁 CTET सिलेबस</h2></div></div><a class="syllabus-folder" href="content/मुख्य_सिलेबस/index.html"><span class="folder-icon">📂</span><span><strong>सिलेबस फोल्डर खोलें</strong><small>हिंदी • संस्कृत • CDP • सामाजिक विज्ञान — चारों विषय अलग-अलग</small></span><span class="folder-arrow">→</span></a></section>\n  <section class="section library-section" id="library"><div class="section-heading"><div><span class="eyebrow">डिजिटल संग्रह</span><h2>अध्ययन सामग्री</h2></div><span class="result-count" id="resultCount">लोड हो रहा है…</span></div>
+\n  <section class="section library-section" id="library"><div class="section-heading"><div><span class="eyebrow">डिजिटल संग्रह</span><h2>अध्ययन सामग्री</h2></div><span class="result-count" id="resultCount">लोड हो रहा है…</span></div>
     <div class="filters"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="शीर्षक, विषय या कीवर्ड खोजें…" autocomplete="off"></label><select id="subjectFilter" aria-label="विषय चुनें"><option value="">सभी विषय</option></select><select id="typeFilter" aria-label="सामग्री प्रकार"><option value="">सभी प्रकार</option><option value="PDF">PDF फाइल</option><option value="HTML">HTML नोट्स</option></select></div>
     <div class="resource-grid" id="resourceGrid" aria-live="polite"><div class="empty-state">सामग्री लोड हो रही है…</div></div>
   </section>
