@@ -1,0 +1,10 @@
+{
+ "version":1,
+ "generated":"2026-11-03",
+ "items":[
+  {"id":"cdp-demo-01","title":"बाल विकास एवं शिक्षाशास्त्र — परिचय","subject":"CDP","type":"Notes","description":"CDP विषय की प्रारंभिक अध्ययन सामग्री के लिए नमूना प्रविष्टि।","keywords":["बाल विकास","शिक्षाशास्त्र","CTET"],"url":"#","file":"content/CDP/README.md"},
+  {"id":"hindi-demo-01","title":"हिंदी भाषा शिक्षण — परिचय","subject":"Hindi","type":"Notes","description":"हिंदी भाषा अनुभाग की प्रारंभिक सामग्री के लिए नमूना प्रविष्टि।","keywords":["हिंदी","भाषा शिक्षण"],"url":"#","file":"content/Hindi/README.md"},
+  {"id":"sanskrit-demo-01","title":"संस्कृत भाषा — परिचय","subject":"Sanskrit","type":"Notes","description":"संस्कृत अनुभाग की प्रारंभिक सामग्री के लिए नमूना प्रविष्टि।","keywords":["संस्कृत","व्याकरण"],"url":"#","file":"content/Sanskrit/README.md"},
+  {"id":"sst-demo-01","title":"सामाजिक विज्ञान — परिचय","subject":"Social_Science","type":"Notes","description":"सामाजिक विज्ञान अनुभाग की प्रारंभिक सामग्री के लिए नमूना प्रविष्टि।","keywords":["इतिहास","भूगोल","नागरिकशास्त्र"],"url":"#","file":"content/Social_Science/README.md"}
+ ]
+}
