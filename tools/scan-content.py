@@ -49,7 +49,7 @@ def main():
     discovered = []
     if CONTENT.exists():
         for subject_dir in sorted(CONTENT.iterdir()):
-            if not subject_dir.is_dir():
+            if not subject_dir.is_dir() or subject_dir.name == "मुख्य_सिलेबस":
                 continue
             for path in sorted(subject_dir.rglob("*")):
                 if not path.is_file():
