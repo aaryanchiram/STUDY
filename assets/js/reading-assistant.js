@@ -1,4 +1,18 @@
 (function(){"use strict";function init(){if(document.getElementById("studyAudioDock"))return;
+const currentScript=document.currentScript||document.querySelector('script[src*="reading-assistant.js"]');
+const homeUrl=currentScript?new URL("../../index.html",currentScript.src).href:"../../index.html";
+const pagePath=location.pathname.replace(/\\/$/,"");
+const isHomePage=pagePath===""||/\\/index\\.html$/i.test(pagePath)&&!pagePath.includes("/content/");
+if(!isHomePage&&!document.getElementById("studyPageActions")){
+const actions=document.createElement("div");actions.id="studyPageActions";
+actions.innerHTML='<a class="study-page-action study-home-action" href="'+homeUrl+'">🏠 होम</a><button class="study-page-action study-back-action" type="button">← Back</button>';
+const style=document.createElement("style");style.textContent='#studyPageActions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:28px auto 20px;padding:0 16px;max-width:1100px;position:static;clear:both}#studyPageActions .study-page-action{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:12px 20px;border:0;border-radius:7px;background:#123f68;color:#fff;text-decoration:none;font:700 14px/1.4 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;cursor:pointer}#studyPageActions .study-page-action:hover{background:#1769aa}#studyPageActions .study-back-action{font-family:inherit}';
+document.head.appendChild(style);
+const main=document.querySelector("main");const footer=document.querySelector("footer,.footer");
+if(main){main.insertAdjacentElement("afterend",actions)}else if(footer){footer.insertAdjacentElement("beforebegin",actions)}else{document.body.appendChild(actions)}
+actions.querySelector(".study-back-action").addEventListener("click",()=>{if(history.length>1)history.back();else location.href=homeUrl});
+}
+
 const st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
 const dock=document.createElement("div");dock.id="studyAudioDock";dock.classList.add("is-hidden");dock.innerHTML='<button class="speaker" type="button" aria-label="पढ़ना शुरू करें" aria-pressed="false" title="स्पीच चालू / बंद">🔊</button>';document.body.appendChild(dock);
 const synth=window.speechSynthesis,btn=dock.querySelector("button");let selected=null,active=null,reading=false,hideTimer=null;function showDock(){if(hideTimer){clearTimeout(hideTimer);hideTimer=null}dock.classList.remove("is-hidden")}function hideDockLater(){if(hideTimer)clearTimeout(hideTimer);hideTimer=setTimeout(()=>{if(!reading)dock.classList.add("is-hidden")},2500)}
