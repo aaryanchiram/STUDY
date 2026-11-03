@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f68">
+  <meta name="description" content="CTET Digital Library — CDP, Hindi, Sanskrit और Social Science अध्ययन सामग्री।">
+  <title>CTET Digital Library | STUDY</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/library.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./"><span class="brand-mark">📚</span><span><strong>CTET Digital Library</strong><small>अध्ययन • अभ्यास • सफलता</small></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="मेन्यू खोलें" aria-expanded="false">☰</button>
+  <nav id="mainNav"><a href="#library">पुस्तकालय</a><a href="#subjects">विषय</a><a href="docs/README_HINDI.md">जानकारी</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy"><span class="eyebrow">CTET तैयारी के लिए डिजिटल संग्रह</span><h1>सीखें बेहतर,<br><em>तैयारी करें स्मार्ट।</em></h1><p>CDP, हिंदी, संस्कृत और सामाजिक विज्ञान की अध्ययन सामग्री एक ही स्थान पर खोजें।</p><a class="primary-btn" href="#library">सामग्री देखें <span>→</span></a></div>
+    <div class="hero-art" aria-hidden="true"><div class="book book-one">अध्ययन</div><div class="book book-two">CTET</div><div class="art-orbit">✦</div></div>
+  </section>
+  <section class="stats" aria-label="पुस्तकालय की जानकारी"><div><strong id="totalCount">0</strong><span>कुल सामग्री</span></div><div><strong>4</strong><span>मुख्य विषय</span></div><div><strong>24×7</strong><span>अध्ययन सुविधा</span></div></section>
+  <section class="section" id="subjects"><div class="section-heading"><div><span class="eyebrow">अपना विषय चुनें</span><h2>विषयवार अध्ययन</h2></div></div><div class="subject-grid" id="subjectCards"></div></section>
+  <section class="section library-section" id="library"><div class="section-heading"><div><span class="eyebrow">डिजिटल संग्रह</span><h2>अध्ययन सामग्री</h2></div><span class="result-count" id="resultCount">लोड हो रहा है…</span></div>
+    <div class="filters"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="शीर्षक, विषय या कीवर्ड खोजें…" autocomplete="off"></label><select id="subjectFilter" aria-label="विषय चुनें"><option value="">सभी विषय</option></select><select id="typeFilter" aria-label="सामग्री प्रकार"><option value="">सभी प्रकार</option><option value="PDF">PDF</option><option value="Video">वीडियो</option><option value="Link">लिंक</option><option value="Notes">नोट्स</option></select></div>
+    <div class="resource-grid" id="resourceGrid" aria-live="polite"><div class="empty-state">सामग्री लोड हो रही है…</div></div>
+  </section>
+</main>
+<footer><div class="footer-brand">📚 CTET Digital Library</div><p>अध्ययन सामग्री का व्यवस्थित डिजिटल संग्रह।</p><small>© <span id="year"></span> STUDY Repository</small></footer>
+<script src="assets/js/app.js" defer></script><script src="assets/js/library.js" defer></script>
+</body></html>
