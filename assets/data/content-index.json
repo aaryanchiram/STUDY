@@ -3,6 +3,24 @@
   "generated": "2026-11-03",
   "items": [
     {
+      "id": "sst-battles-timeline-01",
+      "title": "भारत के महत्वपूर्ण युद्ध — प्राचीन काल से स्वतंत्रता तक",
+      "subject": "Social_Science",
+      "type": "Interactive Notes",
+      "description": "कालक्रमानुसार युद्ध, कारण-परिणाम, याददाश्त ट्रिक्स, हिंदी टेक्स्ट-टू-स्पीच और CTET शैली अभ्यास प्रश्न।",
+      "keywords": [
+        "भारत के युद्ध",
+        "समयरेखा",
+        "पानीपत",
+        "तराइन",
+        "प्लासी",
+        "बक्सर",
+        "CTET इतिहास"
+      ],
+      "url": "content/Social_Science/bharat-ke-mahatvapurn-yuddh.html",
+      "file": "content/Social_Science/bharat-ke-mahatvapurn-yuddh.html"
+    },
+    {
       "id": "cdp-demo-01",
       "title": "बाल विकास एवं शिक्षाशास्त्र — परिचय",
       "subject": "CDP",
@@ -55,24 +73,6 @@
       ],
       "url": "content/Social_Science/README.md",
       "file": "content/Social_Science/README.md"
-    },
-    {
-      "id": "sst-battles-timeline-01",
-      "title": "भारत के महत्वपूर्ण युद्ध — प्राचीन काल से स्वतंत्रता तक",
-      "subject": "Social_Science",
-      "type": "Interactive Notes",
-      "description": "कालक्रमानुसार युद्ध, कारण-परिणाम, याददाश्त ट्रिक्स, हिंदी टेक्स्ट-टू-स्पीच और CTET शैली अभ्यास प्रश्न।",
-      "keywords": [
-        "भारत के युद्ध",
-        "समयरेखा",
-        "पानीपत",
-        "तराइन",
-        "प्लासी",
-        "बक्सर",
-        "CTET इतिहास"
-      ],
-      "url": "content/Social_Science/bharat-ke-mahatvapurn-yuddh.html",
-      "file": "content/Social_Science/bharat-ke-mahatvapurn-yuddh.html"
     }
   ]
 }
