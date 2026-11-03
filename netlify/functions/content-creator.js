@@ -51,8 +51,8 @@ exports.handler = async event => {
   if (!subject || !topic || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return reply(400, { error: "विषय या टॉपिक का चयन सही नहीं है।" });
 
   if (body.action === "generate") {
-    if (!process.env.OPENAI_API_KEY) return reply(503, { error: "Netlify में OPENAI_API_KEY सेट नहीं है।" });
-    const model = process.env.OPENAI_MODEL || "gpt-6-astra";
+    if (!process.env.GEMINI_API_KEY) return reply(503, { error: "Netlify में GEMINI_API_KEY सेट नहीं है।" });
+    const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
     const prompt = `आप CTET Paper II के अनुभवी हिंदी माध्यम शिक्षक और अध्ययन-सामग्री लेखक हैं।
 विषय: ${subject.label}
 टॉपिक: ${topic}
@@ -68,19 +68,26 @@ exports.handler = async event => {
 
 HTML को semantic रखें: h2, h3, p, ul, ol, table, blockquote, details/summary का उपयोग कर सकते हैं। Inline CSS, script, iframe, form, external links, markdown fences या बाहरी संसाधन न दें। किसी तथ्य/वर्ष/लेखक को लेकर अनिश्चित हों तो मनगढ़ंत दावा न करें; उसे स्पष्ट रूप से सावधानी सहित लिखें। जवाब केवल HTML fragment हो।`;
     try {
-      const response = await fetch("https://api.openai.com/v1/responses", {
+      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/" + encodeURIComponent(model) + ":generateContent", {
         method: "POST",
-        headers: { "Authorization": "Bearer " + process.env.OPENAI_API_KEY, "Content-Type": "application/json" },
-        body: JSON.stringify({ model, input: prompt, max_output_tokens: 7000 })
+        headers: { "x-goog-api-key": process.env.GEMINI_API_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { maxOutputTokens: 7000, temperature: 0.7, responseMimeType: "text/plain" }
+        })
       });
-      const data = await response.json();
-      if (!response.ok) return reply(response.status === 429 ? 429 : 502, { error: data.error?.message || "OpenAI से कंटेंट नहीं बन पाया।" });
-      const html = String(data.output_text || "").trim().replace(/^\`\`\`(?:html)?\s*/i, "").replace(/\s*\`\`\`$/, "");
-      if (!html || html.length < 100) return reply(502, { error: "AI से उपयोगी HTML सामग्री प्राप्त नहीं हुई। दोबारा प्रयास करें।" });
-      if (/<\s*(script|iframe|form|object|embed)\b|\son[a-z]+\s*=|javascript\s*:/i.test(html)) return reply(502, { error: "सुरक्षा कारणों से AI आउटपुट अस्वीकार किया गया।" });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const message = data.error?.message || "Gemini से कंटेंट नहीं बन पाया।";
+        return reply(response.status === 429 ? 429 : 502, { error: message });
+      }
+      const html = String((data.candidates || []).flatMap(c => c.content?.parts || []).map(p => p.text || "").join("\\n")).trim()
+        .replace(/^\`\`\`(?:html)?\\s*/i, "").replace(/\\s*\`\`\`$/, "");
+      if (!html || html.length < 100) return reply(502, { error: "Gemini से उपयोगी HTML सामग्री प्राप्त नहीं हुई।" });
+      if (/<\\s*(script|iframe|form|object|embed)\\b|\\son[a-z]+\\s*=|javascript\\s*:/i.test(html)) return reply(502, { error: "सुरक्षा कारणों से AI आउटपुट अस्वीकार किया गया।" });
       return reply(200, { html, model });
     } catch (error) {
-      return reply(502, { error: "OpenAI अनुरोध विफल: " + safeText(error.message, 180) });
+      return reply(502, { error: "Gemini अनुरोध विफल: " + safeText(error.message, 180) });
     }
   }
 
