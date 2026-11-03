@@ -12,6 +12,44 @@
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.main{grid-column:span 8}.side{grid-column:span 4}.panel,.battle,.quiz,.note{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 4px 16px #1d35570a}.panel h2,.section-title{margin:0 0 12px;color:var(--brand)}.section-title{font-size:1.45rem}.intro{font-size:1.02rem}.timeline{position:relative;padding-left:24px}.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:10px;width:3px;background:linear-gradient(var(--gold),var(--teal));border-radius:5px}.battle{position:relative;margin-left:0;padding:17px 18px 16px 20px}.battle:before{content:"";position:absolute;left:-24px;top:24px;width:13px;height:13px;border:3px solid white;border-radius:50%;background:var(--gold);box-shadow:0 0 0 2px var(--gold)}.year{font-size:1.1rem;font-weight:900;color:var(--teal)}.battle h3{margin:2px 0 6px;font-size:1.13rem}.meta{color:var(--muted);font-size:.9rem}.tag{display:inline-block;background:#edf5f4;color:#0f625d;padding:2px 9px;border-radius:20px;font-size:.78rem;margin:3px 4px 3px 0}.battle p{margin:7px 0}.battle details{margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}.battle summary{cursor:pointer;color:var(--brand);font-weight:700}.trick{background:#fff7e7;border-left:4px solid var(--gold);padding:9px 12px;border-radius:8px;margin-top:9px}.side .panel{position:sticky;top:12px}.mini{font-size:.92rem;color:var(--muted)}.memory-list li{margin:8px 0}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.92rem}th,td{text-align:left;padding:9px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3f9;color:var(--brand)}.callout{background:#eef7f6;border:1px solid #cce6e2;border-radius:12px;padding:13px}.warning{background:#fff4ef;border:1px solid #f2d3c8;border-radius:12px;padding:13px}.quiz button.opt{display:block;width:100%;text-align:left;margin:7px 0;background:#f1f5f9;color:var(--ink);border:1px solid var(--line);font-weight:500}.quiz button.opt.correct{background:#e5f6ed;border-color:#4a9c72}.quiz button.opt.wrong{background:#fff0ed;border-color:#c66}.answer{min-height:28px;color:var(--teal);font-weight:700}.sources a{color:#135c91;overflow-wrap:anywhere}.footer{text-align:center;color:var(--muted);padding:24px;font-size:.85rem}
 @media(max-width:780px){.main,.side{grid-column:span 12}.side .panel{position:static}.toolbar{margin-left:12px;margin-right:12px}.hero{padding-top:27px}}
 @media print{.toolbar,.side,.quiz,.btn{display:none!important}body{background:white}.panel,.battle{box-shadow:none;break-inside:avoid}.main{grid-column:span 12}.hero{background:#fff;color:#111;padding:10px}.hero p{color:#333}}
+
+/* Match every mobile action button to the compact Print/PDF button dimensions */
+@media(max-width:650px){
+  button:not(.menu-toggle),
+  .btn,
+  .links a,
+  .nav a,
+  .button-link,
+  .primary-btn,
+  a[role="button"]{
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+    width:auto!important;
+    min-width:0!important;
+    max-width:100%;
+    min-height:0!important;
+    height:auto!important;
+    padding:10px 14px!important;
+    margin:4px 4px 4px 0;
+    border-radius:10px!important;
+    font-size:14px!important;
+    line-height:1.4!important;
+    font-weight:700;
+    white-space:normal;
+    text-align:center;
+    vertical-align:middle;
+  }
+  .links,.nav{display:flex!important;flex-flow:row wrap!important;align-items:center;gap:6px}
+  .quiz button.opt,.quiz button,
+  #quizArea button{
+    display:inline-flex!important;
+    width:auto!important;
+    max-width:100%;
+    text-align:left;
+  }
+}
 </style>
 </head>
 <body>
