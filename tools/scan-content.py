@@ -14,6 +14,7 @@ SUBJECTS = {
     "Sanskrit": "संस्कृत",
     "Social_Science": "सामाजिक विज्ञान",
     "Common": "सामान्य",
+    "मुख्य_सिलेबस": "मुख्य सिलेबस",
 }
 EXT_TYPES = {
     ".html": "HTML",
