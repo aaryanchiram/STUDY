@@ -17,7 +17,7 @@
 <body>
 <header class="hero"><div class="wrap"><div class="eyebrow">CTET • SOCIAL SCIENCE • HISTORY</div><h1>भारत के महत्वपूर्ण युद्ध<br>प्राचीन काल से स्वतंत्रता तक</h1><p>युद्धों को केवल तारीख की तरह नहीं, बल्कि कारण → घटना → परिणाम की कहानी की तरह पढ़िए। यह अध्ययन-पत्र कालक्रम, याददाश्त ट्रिक्स, त्वरित पुनरावृत्ति और CTET शैली के अभ्यास के साथ तैयार किया गया है।</p><div class="chips"><span class="chip">📅 Chronological Timeline</span><span class="chip">🧠 Memory Tricks</span><span class="chip">🔊 हिंदी ऑडियो</span><span class="chip">🎯 CTET Practice</span></div></div></header>
 <div class="wrap">
-<div class="toolbar" aria-label="पठन और ऑडियो नियंत्रण"><button class="btn" onclick="speakPage()">▶ पूरा पाठ सुनें</button><button class="btn alt" onclick="pauseSpeech()">⏸ रोकें</button><button class="btn alt" onclick="resumeSpeech()">▶ फिर चलाएँ</button><button class="btn gold" onclick="stopSpeech()">■ बंद करें</button><span class="rate">गति <input id="rate" type="range" min=".8" max="1.1" step=".05" value="1"><b id="rateVal">1.0×</b></span><button class="btn alt" onclick="window.print()">🖨 प्रिंट / PDF</button></div>
+<div class="toolbar" aria-label="पठन नियंत्रण"><strong>📖 किसी भी युद्ध/टॉपिक पर टैप करें — पढ़ना शुरू होगा</strong><button class="btn gold" id="stopReading" type="button">■ पढ़ना बंद करें</button><button class="btn alt" onclick="window.print()">🖨 प्रिंट / PDF</button></div>
 <div class="grid"><main class="main">
 <section class="panel intro"><h2>इस पाठ को कैसे पढ़ें?</h2><p>सबसे पहले समयरेखा को ऊपर से नीचे पढ़ें। हर युद्ध में तीन बातें याद रखें—<b>कब हुआ, किनके बीच हुआ और उसका ऐतिहासिक महत्व क्या था।</b> किसी युद्ध के परिणाम को उस समय के राजनीतिक संदर्भ में समझें; हर संघर्ष का परिणाम केवल एक पक्ष की स्थायी जीत नहीं होता।</p><div class="callout"><b>महत्वपूर्ण:</b> BCE/ईसा पूर्व में बड़ी संख्या वाला वर्ष पहले आता है—326 ईसा पूर्व, 261 ईसा पूर्व से पुराना है। CE/ईस्वी में छोटी संख्या पहले आती है।</div></section>
 <h2 class="section-title">⚔️ कालक्रमानुसार युद्धों की समयरेखा</h2>
@@ -66,14 +66,49 @@
 <aside class="side"><section class="panel"><h2>📌 60 सेकंड रिविजन</h2><ol class="memory-list"><li>326 ई.पू. — सिकंदर और पोरस</li><li>261 ई.पू. — कलिंग और अशोक</li><li>1191/1192 — तराइन</li><li>1526/1556/1761 — पानीपत</li><li>1757 — प्लासी</li><li>1764 — बक्सर</li><li>1857 — विद्रोह</li></ol></section><section class="panel"><h2>🎧 ऑडियो सहायता</h2><p class="mini">यह पेज आपके ब्राउज़र के हिंदी Text-to-Speech इंजन का उपयोग करता है। उपलब्ध आवाज़ों में महिला हिंदी आवाज़ मिले तो उसे प्राथमिकता दी जाएगी। आवाज़ और उच्चारण मोबाइल/ब्राउज़र पर निर्भर हैं।</p><button class="btn" style="width:100%" onclick="speakSelection()">चयनित भाग सुनें</button></section><section class="panel"><h2>🧩 परीक्षा में भ्रमित न हों</h2><ul class="mini"><li>तराइन और पानीपत अलग-अलग युद्धस्थल हैं।</li><li>प्लासी 1757; बक्सर 1764।</li><li>द्वितीय पानीपत में बैरम खाँ ने अकबर की ओर से नेतृत्व किया।</li><li>हल्दीघाटी के बाद मेवाड़ का प्रतिरोध समाप्त नहीं हुआ।</li><li>1857 एक व्यापक विद्रोह था, एक अकेली लड़ाई नहीं।</li></ul></section></aside></div>
 </div><footer class="footer">CTET डिजिटल लाइब्रेरी • सामाजिक विज्ञान • अध्ययन के लिए शैक्षिक सामग्री</footer>
 <script>
-const synth=window.speechSynthesis;let utterance=null;
-function hindiVoice(){const vs=synth?synth.getVoices():[];const hi=vs.filter(v=>/^hi([-_]|$)/i.test(v.lang)||/hindi/i.test(v.name));return hi.find(v=>/female|woman|zira|heera|kalpana|lekha|google हिन्दी|google hindi/i.test(v.name))||hi[0]||null}
-function speakText(text){if(!synth){alert('इस ब्राउज़र में Text-to-Speech उपलब्ध नहीं है।');return}synth.cancel();utterance=new SpeechSynthesisUtterance(text);utterance.lang='hi-IN';utterance.rate=Number(document.getElementById('rate').value);const voice=hindiVoice();if(voice)utterance.voice=voice;synth.speak(utterance)}
-function speakPage(){speakText(document.querySelector('main').innerText)}
-function speakSelection(){const s=window.getSelection().toString();speakText(s||'पहले जिस अनुच्छेद को सुनना चाहते हैं उसे चुनें, फिर चयनित भाग सुनें बटन दबाएँ।')}
-function pauseSpeech(){if(synth)synth.pause()}function resumeSpeech(){if(synth)synth.resume()}function stopSpeech(){if(synth)synth.cancel()}
-document.getElementById('rate').addEventListener('input',e=>document.getElementById('rateVal').textContent=Number(e.target.value).toFixed(2)+'×');
-if(synth)synth.onvoiceschanged=()=>{};
+(function(){
+  const synth=window.speechSynthesis;
+  let current=null, activeCard=null, voiceList=[];
+  function loadVoices(){voiceList=synth?synth.getVoices():[];}
+  if(synth){loadVoices();synth.addEventListener('voiceschanged',loadVoices);}
+  function chooseHindiVoice(){
+    const hi=voiceList.filter(v=>/^hi([-_]|$)/i.test(v.lang)||/hindi|हिन्दी/i.test(v.name));
+    return hi.find(v=>/female|woman|zira|heera|kalpana|lekha|google हिन्दी|google hindi/i.test(v.name))||hi[0]||null;
+  }
+  function cleanText(card){
+    const clone=card.cloneNode(true);
+    clone.querySelectorAll('button,script,style,summary').forEach(n=>n.remove());
+    return clone.innerText.replace(/🧠 ट्रिक:/g,'याद रखने की ट्रिक:').replace(/\s+/g,' ').trim();
+  }
+  function stopReading(){
+    if(synth)synth.cancel();
+    current=null;
+    if(activeCard)activeCard.classList.remove('speaking');
+    activeCard=null;
+  }
+  function readTopic(card){
+    if(!synth||!window.SpeechSynthesisUtterance){alert('आपके ब्राउज़र में Text-to-Speech उपलब्ध नहीं है। Android में Google Speech Services की हिंदी आवाज़ चालू करें।');return;}
+    stopReading();
+    activeCard=card;card.classList.add('speaking');
+    const text=cleanText(card);
+    current=new SpeechSynthesisUtterance(text);
+    current.lang='hi-IN';
+    current.rate=1.0;
+    const voice=chooseHindiVoice();if(voice)current.voice=voice;
+    current.onend=()=>{if(activeCard===card){card.classList.remove('speaking');activeCard=null;current=null;}};
+    current.onerror=()=>{if(activeCard===card){card.classList.remove('speaking');activeCard=null;current=null;}};
+    synth.speak(current);
+  }
+  document.querySelectorAll('.battle').forEach(card=>{
+    card.setAttribute('tabindex','0');card.setAttribute('role','button');
+    card.setAttribute('aria-label',(card.querySelector('h3')?.innerText||'टॉपिक')+' पढ़ने के लिए टैप करें');
+    card.addEventListener('click',e=>{if(e.target.closest('a,button,summary'))return;readTopic(card);});
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();readTopic(card);}});
+  });
+  document.getElementById('stopReading')?.addEventListener('click',stopReading);
+  window.addEventListener('beforeunload',stopReading);
+})();
+
 const questions=[
 {q:'हाइडेस्पीज़ का युद्ध किनके बीच हुआ था?',o:['अशोक और कलिंग','सिकंदर और पोरस','बाबर और इब्राहिम लोदी','अकबर और हेमू'],a:1,e:'326 ईसा पूर्व में झेलम नदी के निकट सिकंदर और पोरस का संघर्ष हुआ।'},
 {q:'कलिंग युद्ध के बाद किस मौर्य शासक की नीति में परिवर्तन आया?',o:['चंद्रगुप्त मौर्य','बिंदुसार','अशोक','दशरथ'],a:2,e:'कलिंग युद्ध के पश्चात अशोक ने धम्म और नैतिक शासन पर अधिक बल दिया।'},
